@@ -1,8 +1,7 @@
 package com.orangehrm.stepDefinitions;
 
-import com.orangehrm.tasks.LoginTask;
-import com.orangehrm.tasks.Opens;
-import com.orangehrm.tasks.RecruitmentTask;
+import com.orangehrm.questions.ValidateHiredStatus;
+import com.orangehrm.tasks.*;
 import com.orangehrm.utils.UrlPage;
 import io.cucumber.java.Before;
 import io.cucumber.java.en.Given;
@@ -13,8 +12,11 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
+import org.hamcrest.Matcher;
+import org.hamcrest.Matchers;
 import org.openqa.selenium.WebDriver;
 
+import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
 import static net.serenitybdd.screenplay.actors.OnStage.*;
 
 public class PageOrangeStepDefinition {
@@ -43,8 +45,21 @@ public class PageOrangeStepDefinition {
                 RecruitmentTask.select(dataTable)
         );
     }
-    @Then("Validate candidate status to be hired")
-    public void validateCandidateStatusToBeHired() {
+
+    @When("the candidate continues with the hired process")
+    public void theCandidateContinuesWithTheHiredProcess(io.cucumber.datatable.DataTable dataTable) {
+        theActorInTheSpotlight().attemptsTo(
+                ContinueProcessTask.candidate(),
+                ScheduleInterviewTask.nextProcess(dataTable)
+        );
+
     }
 
+    @Then("Validate candidate status to be hired")
+    public void validateCandidateStatusToBeHired() {
+       /* theActorInTheSpotlight().should(
+                seeThat(
+                        ValidateHiredStatus.status(), Matchers.equalTo(true)
+                ));*/
+    }
 }
