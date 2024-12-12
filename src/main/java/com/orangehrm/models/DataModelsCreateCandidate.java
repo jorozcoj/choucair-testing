@@ -1,6 +1,6 @@
 package com.orangehrm.models;
 
-public class DataModelsCreateCandidate {
+public class DataModelsCreateCandidate{
 
     private String firstName;
     private String middleName;
@@ -10,7 +10,7 @@ public class DataModelsCreateCandidate {
     private String keyWords;
     private String notesAdd;
 
-    public DataModelsCreateCandidate(String firstName, String middleName,  String lastName, String email, String contactNumber, String keyWords , String notesAdd) {
+    public DataModelsCreateCandidate(String firstName, String middleName, String lastName, String email, String contactNumber, String keyWords, String notesAdd) {
         this.firstName = firstName;
         this.middleName = middleName;
         this.lastName = lastName;

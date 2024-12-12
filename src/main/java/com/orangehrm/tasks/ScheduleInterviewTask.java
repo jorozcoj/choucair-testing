@@ -13,13 +13,11 @@ import java.util.List;
 import java.util.Map;
 
 import static com.orangehrm.userInterfaces.ScheduleInterviewUI.*;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
-import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.*;
 
 public class ScheduleInterviewTask implements Task {
 
     DataTable data;
-
     public ScheduleInterviewTask(DataTable data) {
         this.data = data;
     }
@@ -36,8 +34,6 @@ public class ScheduleInterviewTask implements Task {
         );
 
         actor.attemptsTo(
-
-
                 WaitUntil.the(BTN_SCHEDULE_INTERVIEW, isVisible())
                         .forNoMoreThan(10).seconds(),
                 Click.on(BTN_SCHEDULE_INTERVIEW),
@@ -45,13 +41,12 @@ public class ScheduleInterviewTask implements Task {
                 Enter.theValue(dataModelsScheduleInterview.getInterviewTitle()).into(INPUT_INTERVIEW_TITLE),
                 Click.on(INPUT_INTERVIEWER),
                 Enter.theValue(dataModelsScheduleInterview.getInterviewer()).into(INPUT_INTERVIEWER),
-                WaitUntil.the(SELECT_OPTION, isEnabled())
+                WaitUntil.the(SELECT_OPTION, isClickable())
                         .forNoMoreThan(10).seconds(),
                 Click.on(SELECT_OPTION),
                 Enter.theValue(dataModelsScheduleInterview.getDate()).into(INPUT_DATE),
                 Enter.theValue(dataModelsScheduleInterview.getNotesInterview()).into(TXT_NOTES),
                 Click.on(BTN_SAVE_SCHEDULE)
-
         );
     }
 

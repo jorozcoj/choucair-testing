@@ -7,7 +7,6 @@ import net.serenitybdd.screenplay.Task;
 import net.serenitybdd.screenplay.Tasks;
 import net.serenitybdd.screenplay.actions.Click;
 import net.serenitybdd.screenplay.actions.Enter;
-import org.openqa.selenium.Keys;
 
 import java.util.List;
 import java.util.Map;
@@ -23,8 +22,9 @@ public class RecruitmentTask implements Task {
 
     @Override
     public <T extends Actor> void performAs(T actor) {
+
         List<Map<String, String>> a = data.asMaps(String.class, String.class);
-        DataModelsCreateCandidate dataModelsCandidate = new DataModelsCreateCandidate(a.get(0).get("firstName"),a.get(0).get("middleName"),
+        DataModelsCreateCandidate dataModelsCandidate = new DataModelsCreateCandidate(a.get(0).get("firstName"), a.get(0).get("middleName"),
                 a.get(0).get("lastName"), a.get(0).get("email"), a.get(0).get("contactNumber"), a.get(0).get("keyWords"), a.get(0).get("notesAdd"));
 
         actor.attemptsTo(
@@ -41,11 +41,10 @@ public class RecruitmentTask implements Task {
                 Enter.theValue(dataModelsCandidate.getNotesAdd()).into(TXT_NOTES),
                 Click.on(SELECT_CHECK),
                 Click.on(BUTTON_SAVE)
-
         );
     }
 
-    public static RecruitmentTask select(DataTable data){
-        return Tasks.instrumented(RecruitmentTask.class,data);
+    public static RecruitmentTask select(DataTable data) {
+        return Tasks.instrumented(RecruitmentTask.class, data);
     }
 }

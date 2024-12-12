@@ -9,7 +9,6 @@ public class ContinueProcessUI {
 
     //Button save of the page after shortlist (shortlist candidate page)
     public static final Target BTN_SAVE_SHORTLIST = Target.the("click save button").located(By.xpath("//div[@class='oxd-form-actions']/button[text()=' Save ']"));
-
 }
 
 

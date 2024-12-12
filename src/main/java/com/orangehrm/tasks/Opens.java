@@ -24,7 +24,8 @@ public class Opens extends PageObject implements Task {
                 Open.url(urlPage.url())
         );
     }
+
     public static Opens Browser(UrlPage urlPage) {
-        return Tasks.instrumented(Opens.class,urlPage);
+        return Tasks.instrumented(Opens.class, urlPage);
     }
 }

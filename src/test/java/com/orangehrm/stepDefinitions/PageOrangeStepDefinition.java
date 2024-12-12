@@ -12,7 +12,7 @@ import net.serenitybdd.screenplay.abilities.BrowseTheWeb;
 import net.serenitybdd.screenplay.actors.OnStage;
 import net.serenitybdd.screenplay.actors.OnlineCast;
 import net.thucydides.core.annotations.Managed;
-import org.hamcrest.Matcher;
+
 import org.hamcrest.Matchers;
 import org.openqa.selenium.WebDriver;
 
@@ -25,7 +25,7 @@ public class PageOrangeStepDefinition {
     private WebDriver browser;
 
     @Before
-    public void SetUp(){
+    public void SetUp() {
         WebDriverManager.chromedriver().setup();
         setTheStage(new OnlineCast());
         OnStage.theActorCalled("jhorman").can(BrowseTheWeb.with(browser));
@@ -37,8 +37,8 @@ public class PageOrangeStepDefinition {
                 Opens.Browser(UrlPage.URLPAGE),
                 LoginTask.with(dataTable)
         );
-
     }
+
     @When("Full form to register a new candidate")
     public void fullFormToRegisterANewCandidate(io.cucumber.datatable.DataTable dataTable) {
         theActorInTheSpotlight().attemptsTo(
@@ -50,16 +50,17 @@ public class PageOrangeStepDefinition {
     public void theCandidateContinuesWithTheHiredProcess(io.cucumber.datatable.DataTable dataTable) {
         theActorInTheSpotlight().attemptsTo(
                 ContinueProcessTask.candidate(),
-                ScheduleInterviewTask.nextProcess(dataTable)
-                //FinishHireProcessTask.finish()
+                ScheduleInterviewTask.nextProcess(dataTable),
+                FinishHireProcessTask.finish(),
+                ValidateCandidateTask.validate()
         );
     }
 
     @Then("Validate candidate status to be hired")
     public void validateCandidateStatusToBeHired() {
-        /*theActorInTheSpotlight().should(
+        theActorInTheSpotlight().should(
                 seeThat(
-                        ValidateHiredStatus.status(), Matchers.equalTo(true)
-                ));*/
+                        ValidateHiredStatus.status(), Matchers.is(true)
+                ));
     }
 }

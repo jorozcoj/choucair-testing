@@ -4,7 +4,7 @@ public class DataModelsScheduleInterview {
     private String interviewTitle;
     private String interviewer;
     private String date;
-    private String notesInterview ;
+    private String notesInterview;
 
     public DataModelsScheduleInterview(String interviewTitle, String interviewer, String date, String notesInterview) {
         this.interviewTitle = interviewTitle;

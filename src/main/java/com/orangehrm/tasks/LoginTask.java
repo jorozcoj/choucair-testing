@@ -24,7 +24,7 @@ public class LoginTask implements Task {
     public <T extends Actor> void performAs(T actor) {
 
         List<Map<String, String>> a = data.asMaps(String.class, String.class);
-        DataModelsLogin dataModelsLogin = new DataModelsLogin(a.get(0).get("userName"),a.get(0).get("password"));
+        DataModelsLogin dataModelsLogin = new DataModelsLogin(a.get(0).get("userName"), a.get(0).get("password"));
 
         actor.attemptsTo(
                 Click.on(INPUT_USERNAME),
@@ -34,7 +34,8 @@ public class LoginTask implements Task {
                 Click.on(BTN_LOGIN)
         );
     }
-    public static LoginTask with (DataTable data){
-        return Tasks.instrumented(LoginTask.class,data);
+
+    public static LoginTask with(DataTable data) {
+        return Tasks.instrumented(LoginTask.class, data);
     }
 }
