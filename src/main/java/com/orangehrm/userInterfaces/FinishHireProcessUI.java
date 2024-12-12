@@ -8,7 +8,7 @@ public class FinishHireProcessUI {
     public static final Target BTN_INTERVIEW_PASSED = Target.the("click Mark interview passed").located(By.xpath("//div[@class='orangehrm-recruitment-actions']/button[3]"));
 
     //Add notes for interview passed
-    public static final Target TXT_INTERVIEWPASSED_NOTES = Target.the("Enter notes interview passed").located(By.className("oxd-textarea"));
+    public static final Target TXT_NOTES = Target.the("Enter notes interview passed").located(By.className("oxd-textarea"));
     public static final Target BTN_SAVE_PASSED_INTERVIEW = Target.the("click save interview passed button").located(By.xpath("//div[@class='oxd-form-actions']/button[2][text=' Save ']"));
 
     //Section offer job

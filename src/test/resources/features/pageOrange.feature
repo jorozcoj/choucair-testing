@@ -16,7 +16,7 @@ Feature: Hired person process
     Then Validate candidate status to be hired
 
     Examples:
-      | userName | password | firstName | middleName | lastName | email             | contactNumber | keyWords  | notesAdd  | interviewTitle | interviewer | date       | notesInterview   |
-      | admin    | admin123 | Test      | test2     | test3   | human@hotmail.com | 3209022       | Candidate | Offered | Test           | Orange      | 2024-22-12 | Continue Process |
+      | userName | password | firstName | middleName | lastName | email             | contactNumber | keyWords  | notesAdd | interviewTitle | interviewer | date       | notesInterview   |
+      | admin    | admin123 | Test      | test2      | test3    | human@hotmail.com | 3209022       | Candidate | Offered  | Test           | Orange      | 2024-22-12 | Continue Process |
 
 

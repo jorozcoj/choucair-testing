@@ -1,6 +1,5 @@
 package com.orangehrm.tasks;
 
-import com.orangehrm.models.DataModelsCreateCandidate;
 import com.orangehrm.models.DataModelsScheduleInterview;
 import io.cucumber.datatable.DataTable;
 import net.serenitybdd.screenplay.Actor;
@@ -14,6 +13,7 @@ import java.util.List;
 import java.util.Map;
 
 import static com.orangehrm.userInterfaces.ScheduleInterviewUI.*;
+import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isEnabled;
 import static net.serenitybdd.screenplay.matchers.WebElementStateMatchers.isVisible;
 
 public class ScheduleInterviewTask implements Task {
@@ -36,24 +36,21 @@ public class ScheduleInterviewTask implements Task {
         );
 
         actor.attemptsTo(
+
+
                 WaitUntil.the(BTN_SCHEDULE_INTERVIEW, isVisible())
                         .forNoMoreThan(10).seconds(),
                 Click.on(BTN_SCHEDULE_INTERVIEW),
-
-                WaitUntil.the(INPUT_INTERVIEW_TITLE, isVisible())
-                .forNoMoreThan(10).seconds(),
+                Click.on(INPUT_INTERVIEW_TITLE),
                 Enter.theValue(dataModelsScheduleInterview.getInterviewTitle()).into(INPUT_INTERVIEW_TITLE),
-
                 Click.on(INPUT_INTERVIEWER),
-                WaitUntil.the(INPUT_INTERVIEWER, isVisible())
-                .forNoMoreThan(10).seconds(),
                 Enter.theValue(dataModelsScheduleInterview.getInterviewer()).into(INPUT_INTERVIEWER),
+                WaitUntil.the(SELECT_OPTION, isEnabled())
+                        .forNoMoreThan(10).seconds(),
                 Click.on(SELECT_OPTION),
-
-
                 Enter.theValue(dataModelsScheduleInterview.getDate()).into(INPUT_DATE),
                 Enter.theValue(dataModelsScheduleInterview.getNotesInterview()).into(TXT_NOTES),
-                Click.on(BTN_SCHEDULE_INTERVIEW)
+                Click.on(BTN_SAVE_SCHEDULE)
 
         );
     }

@@ -11,7 +11,7 @@ public class RecruitmentUI {
     public static final Target INPUT_MIDDLENAME = Target.the("Enter lastname").located(By.name("middleName"));
     public static final Target INPUT_LASTNAME = Target.the("Enter lastname").located(By.name("lastName"));
     public static final Target ARROW_VACANCY = Target.the("Click to open List").located(By.className("oxd-select-text"));
-    public static final Target INPUT_VACANCY = Target.the("Select the vacancy").located(By.cssSelector(".oxd-select-dropdown .oxd-select-option:nth-child(2)"));
+    public static final Target INPUT_VACANCY = Target.the("Select the vacancy").located(By.cssSelector(".oxd-select-dropdown .oxd-select-option:nth-child(3)"));
     public static final Target INPUT_EMAIL = Target.the("Enter email").located(By.cssSelector(".oxd-grid-3 .oxd-grid-item:first-child .oxd-input-field-bottom-space input[placeholder='Type here']"));
     public static final Target INPUT_CONTACT_NUMBER = Target.the("Enter contact number").located(By.cssSelector(".oxd-grid-3 .oxd-grid-item:nth-child(2) .oxd-input-field-bottom-space input[placeholder='Type here']"));
     public static final Target INPUT_KEYWORDS = Target.the("Enter keywords").located(By.cssSelector("input[placeholder='Enter comma seperated words...']"));

@@ -6,7 +6,8 @@ import org.openqa.selenium.By;
 public class ScheduleInterviewUI {
 
     //Button Schedule Interview (shortlisted candidate page)
-    public static final Target BTN_SCHEDULE_INTERVIEW = Target.the("click schedule interview button").located(By.xpath("//div[@class='orangehrm-recruitment']/div[2]/button[2][text()=' Schedule Interview ']"));
+    public static final Target BTN_SCHEDULE_INTERVIEW = Target.the("click schedule interview button").located(By.xpath("//div[@class='orangehrm-recruitment']/div/button[text()=' Schedule Interview ']"));
+
 
     //Page interview title, interviewer, date(Schedule interview page)
 

@@ -51,13 +51,13 @@ public class PageOrangeStepDefinition {
         theActorInTheSpotlight().attemptsTo(
                 ContinueProcessTask.candidate(),
                 ScheduleInterviewTask.nextProcess(dataTable)
+                //FinishHireProcessTask.finish()
         );
-
     }
 
     @Then("Validate candidate status to be hired")
     public void validateCandidateStatusToBeHired() {
-       /* theActorInTheSpotlight().should(
+        /*theActorInTheSpotlight().should(
                 seeThat(
                         ValidateHiredStatus.status(), Matchers.equalTo(true)
                 ));*/
